@@ -10,9 +10,11 @@ function calculate() {
 
     const callPrice = (stockPrice * normalDistribution(d1)) - (strikePrice * Math.exp(-interestRate/100 * (timeToExpiration / 365)) * normalDistribution(d2));
     const putPrice = (strikePrice * Math.exp(-interestRate/100 * (timeToExpiration / 365)) * normalDistribution(-d2)) - (stockPrice * normalDistribution(-d1));
-
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = ("Call Option Price: " + callPrice.toFixed(2) +   "/n Put Option Price: " + putPrice.toFixed(2));
+    
+    const Callresult = document.getElementById('result1');
+    const Putresult = document.getElementById('result2');
+    Callresult.innerHTML = ("Call Option Price: " + callPrice.toFixed(2) );
+    Putresult.innerHTML = (" Put Option Price: " + putPrice.toFixed(2));
 }
 
 function normalDistribution(x) {
